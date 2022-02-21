@@ -1,0 +1,47 @@
+{% extends 'layout.html' %} {% load static %} {% block body %}
+<h2 class=" mt-5 d-flex justify-content-center">PDF pentru examen (114, AIA)</h2>
+<div class="mt-4 text-center d-flex justify-content-center">
+	<form method="post" action="{% url 'index' %}" enctype="multipart/form-data">
+		{% csrf_token %}
+		<div class="row g-3 align-items-center">
+			<div class="col-auto">
+				<label for="inputPassword6" class="col-form-label">Nume:</label>
+			</div>
+			<div class="col-auto">
+				<input
+					type="text"
+					id="inputPassword6"
+					class="form-control"
+					aria-describedby="passwordHelpInline"
+					name="name"
+				/>
+			</div>
+			<div class="col-auto">
+				<span id="passwordHelpInline" class="form-text">
+					Exemplu: Rosu Teodor
+				</span>
+			</div>
+		</div>
+		<div class="row align-items-center mt-3">
+			<div class="col-auto">
+				<label for="formFileMultiple" class="col-form-label"
+					>Selecteaza pozele:</label
+				>
+			</div>
+			<div class="col-auto">
+				<input
+					class="form-control"
+					type="file"
+					id="formFileMultiple"
+					multiple
+					accept=".png, .jpeg, .jpg"
+					name="photos"
+				/>
+			</div>
+		</div>
+		<div class="d-grid gap-2 mt-3">
+			<button class="btn btn-success" type="submit">Salveaza PDF</button>
+		</div>
+	</form>
+</div>
+{% endblock %}
